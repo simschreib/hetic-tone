@@ -14,6 +14,7 @@ export class AuthData {
   }
 
   loginUser(email: string, password: string): any {
+    console.log(this.fireAuth.signInWithEmailAndPassword(email, password));
     return this.fireAuth.signInWithEmailAndPassword(email, password);
   }
 

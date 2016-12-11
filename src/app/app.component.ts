@@ -18,8 +18,7 @@ import firebase from 'firebase';
 export class MyApp {
 
   @ViewChild('nav') nav
-
-  rootPage = TabsPage;
+  public rootPage: any;
   constructor(public platform: Platform) {
 
     firebase.initializeApp({
@@ -38,6 +37,7 @@ export class MyApp {
     //
     firebase.auth().onAuthStateChanged((user) => {
       if (!user) {
+        console.log("euh go là");
         this.nav.push(LoginPage);
       }
     });
