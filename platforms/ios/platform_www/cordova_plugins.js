@@ -56,6 +56,15 @@ module.exports = [
         "clobbers": [
             "cordova.plugins.camerapreview"
         ]
+    },
+    {
+        "file": "plugins/com.keith.cordova.plugin.canvascamera/www/CanvasCamera.js",
+        "id": "com.keith.cordova.plugin.canvascamera.CanvasCamera",
+        "pluginId": "com.keith.cordova.plugin.canvascamera",
+        "clobbers": [
+            "plugin.CanvasCamera",
+            "CanvasCamera"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -67,7 +76,8 @@ module.exports.metadata =
     "cordova-plugin-statusbar": "2.2.0",
     "cordova-plugin-whitelist": "1.3.0",
     "ionic-plugin-keyboard": "2.2.1",
-    "com.mbppower.camerapreview": "0.0.8"
+    "com.mbppower.camerapreview": "0.0.8",
+    "com.keith.cordova.plugin.canvascamera": "1.0.0dev"
 }
 // BOTTOM OF METADATA
 });

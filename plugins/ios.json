@@ -27,6 +27,9 @@
         },
         "com.mbppower.camerapreview": {
             "PACKAGE_NAME": "io.ionic.starter"
+        },
+        "com.keith.cordova.plugin.canvascamera": {
+            "PACKAGE_NAME": "com.ionicframework.myapp260348"
         }
     },
     "dependent_plugins": {}

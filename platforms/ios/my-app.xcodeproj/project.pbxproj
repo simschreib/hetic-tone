@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		019776EDBBA14F598E677130 /* CameraSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE230263E1E40638315E2D1 /* CameraSessionManager.m */; };
 		0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0207DA571B56EA530066E2B4 /* Images.xcassets */; };
@@ -28,6 +27,8 @@
 		C98A7F2D45F84A1EA1219BF6 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B1F783DE27F4F2ABFFA674F /* CoreVideo.framework */; };
 		F0ED246B96064CE7A7463D0F /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 7153772602074FFFA945F9AE /* CDVDevice.m */; };
 		F97FEF016C95453D8E5D7507 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7C21DE85BFE4AE6AFB97204 /* ImageIO.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		46EB5CEEA89F41F38ED3BC53 /* CanvasCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473FC27E9C94A5B850BE086 /* CanvasCamera.m */; };
+		06DB9B104ABE4765B84F0C3B /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE463489DD0647429B99F995 /* CoreMedia.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,9 @@
 		F46CA9B837974AB19862F176 /* CoreImage.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "my-app/config.xml"; sourceTree = "<group>"; };
 		F87150A0666740079C135F08 /* CDVSplashScreen.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVSplashScreen.m; path = "cordova-plugin-splashscreen/CDVSplashScreen.m"; sourceTree = "<group>"; };
+		8473FC27E9C94A5B850BE086 /* CanvasCamera.m */ = {isa = PBXFileReference; name = "CanvasCamera.m"; path = "com.keith.cordova.plugin.canvascamera/CanvasCamera.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		08E800747C9F4DAC8D6572C4 /* CanvasCamera.h */ = {isa = PBXFileReference; name = "CanvasCamera.h"; path = "com.keith.cordova.plugin.canvascamera/CanvasCamera.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		BE463489DD0647429B99F995 /* CoreMedia.framework */ = {isa = PBXFileReference; name = "CoreMedia.framework"; path = "System/Library/Frameworks/CoreMedia.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,7 @@
 				80B5609F236E443EA0B16F82 /* OpenGLES.framework in Frameworks */,
 				30806DC286C4483AB8FBE8A6 /* GLKit.framework in Frameworks */,
 				C98A7F2D45F84A1EA1219BF6 /* CoreVideo.framework in Frameworks */,
+				06DB9B104ABE4765B84F0C3B /* CoreMedia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +185,7 @@
 				135A95CC76A740DE8574FCE8 /* OpenGLES.framework */,
 				AC70B1F18C7B49ED90256BBC /* GLKit.framework */,
 				9B1F783DE27F4F2ABFFA674F /* CoreVideo.framework */,
+				BE463489DD0647429B99F995 /* CoreMedia.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -223,6 +229,8 @@
 				BD3CD364B55A419F9065340C /* CameraPreview.h */,
 				A4A30EAEEF6F4CADBEC1B095 /* CameraSessionManager.h */,
 				DA4E995DD3AE46A98AC131E5 /* CameraRenderController.h */,
+				8473FC27E9C94A5B850BE086 /* CanvasCamera.m */,
+				08E800747C9F4DAC8D6572C4 /* CanvasCamera.h */,
 			);
 			name = Plugins;
 			path = "my-app/Plugins";
@@ -265,7 +273,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 810;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = P37BJQKME2;
@@ -351,6 +359,7 @@
 				1BDA1071BBCA4F37B743FC0E /* CameraPreview.m in Sources */,
 				019776EDBBA14F598E677130 /* CameraSessionManager.m in Sources */,
 				85F50987E0DD4B11B3396C10 /* CameraRenderController.m in Sources */,
+				46EB5CEEA89F41F38ED3BC53 /* CanvasCamera.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
