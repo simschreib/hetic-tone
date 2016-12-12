@@ -35,6 +35,10 @@
                         {
                             "xml": "<feature name=\"CanvasCamera\"><param name=\"android-package\" value=\"com.keith.canvascameraplugin.CanvasCamera\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"CameraServer\"><param name=\"android-package\" value=\"com.moonware.cameraserver.CameraServer\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -76,6 +80,28 @@
                             "xml": "<activity android:label=\"@string/app_name\" android:name=\"com.keith.canvascameraplugin.CanvasCameraView\" android:theme=\"@android:style/Theme.Black.NoTitleBar\"></activity>",
                             "count": 1
                         }
+                    ],
+                    "/*": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.CAMERA\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.FLASHLIGHT\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.VIBRATE\" />",
+                            "count": 1
+                        }
                     ]
                 }
             }
@@ -104,6 +130,9 @@
             "PACKAGE_NAME": "com.ionicframework.myapp260348"
         },
         "com.keith.cordova.plugin.canvascamera": {
+            "PACKAGE_NAME": "com.ionicframework.myapp260348"
+        },
+        "cordova-plugin-cameraserver": {
             "PACKAGE_NAME": "com.ionicframework.myapp260348"
         }
     },
@@ -158,6 +187,14 @@
                 "plugin.CanvasCamera",
                 "CanvasCamera"
             ]
+        },
+        {
+            "id": "cordova-plugin-cameraserver.CameraServer",
+            "file": "plugins/cordova-plugin-cameraserver/www/CameraServer.js",
+            "pluginId": "cordova-plugin-cameraserver",
+            "clobbers": [
+                "cordova.plugins.CameraServer"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -168,6 +205,7 @@
         "cordova-plugin-statusbar": "2.2.0",
         "cordova-plugin-whitelist": "1.3.0",
         "ionic-plugin-keyboard": "2.2.1",
-        "com.keith.cordova.plugin.canvascamera": "1.0.0dev"
+        "com.keith.cordova.plugin.canvascamera": "1.0.0dev",
+        "cordova-plugin-cameraserver": "0.3.0"
     }
 }

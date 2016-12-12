@@ -63,5 +63,14 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "cordova-plugin-cameraserver": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Moonware/cordova-cameraserver",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }

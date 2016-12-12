@@ -26,6 +26,9 @@
     <feature name="CanvasCamera">
         <param name="android-package" value="com.keith.canvascameraplugin.CanvasCamera" />
     </feature>
+    <feature name="CameraServer">
+        <param name="android-package" value="com.moonware.cameraserver.CameraServer" />
+    </feature>
     <name>my-app</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>

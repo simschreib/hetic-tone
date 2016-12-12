@@ -67,6 +67,14 @@ module.exports = [
             "plugin.CanvasCamera",
             "CanvasCamera"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-cameraserver/www/CameraServer.js",
+        "id": "cordova-plugin-cameraserver.CameraServer",
+        "pluginId": "cordova-plugin-cameraserver",
+        "clobbers": [
+            "cordova.plugins.CameraServer"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -79,7 +87,8 @@ module.exports.metadata =
     "cordova-plugin-statusbar": "2.2.0",
     "cordova-plugin-whitelist": "1.3.0",
     "ionic-plugin-keyboard": "2.2.1",
-    "com.keith.cordova.plugin.canvascamera": "1.0.0dev"
+    "com.keith.cordova.plugin.canvascamera": "1.0.0dev",
+    "cordova-plugin-cameraserver": "0.3.0"
 }
 // BOTTOM OF METADATA
 });

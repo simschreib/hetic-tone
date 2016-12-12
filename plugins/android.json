@@ -30,6 +30,9 @@
         },
         "com.keith.cordova.plugin.canvascamera": {
             "PACKAGE_NAME": "com.ionicframework.myapp260348"
+        },
+        "cordova-plugin-cameraserver": {
+            "PACKAGE_NAME": "com.ionicframework.myapp260348"
         }
     },
     "dependent_plugins": {}
