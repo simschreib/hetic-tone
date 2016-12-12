@@ -23,28 +23,40 @@ export class HomePage {
     public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
       platform.ready().then(() => {
 
-        StatusBar.styleDefault();
-        Splashscreen.hide();
+        // StatusBar.styleDefault();
+        // Splashscreen.hide();
+        //
+        // let tapEnabled: any = false;
+        // let dragEnabled: any = false;
+        // let toBack: any = true;
+        // let alpha = 1;
+        // let rect: any = {
+        //   x: 0,
+        //   y: 0,
+        //   width: platform.width(),
+        //   height: platform.height()
+        // };
+        //
+        // CameraPreview.startCamera(
+        //   rect,
+        //   'rear',
+        //   tapEnabled,
+        //   dragEnabled,
+        //   toBack,
+        //   alpha
+        // );
+        var objCanvas = <HTMLCanvasElement> document.getElementById("canvas");
+            (<any>window).plugin.CanvasCamera.initialize(objCanvas);
 
-        let tapEnabled: any = false;
-        let dragEnabled: any = false;
-        let toBack: any = true;
-        let alpha = 1;
-        let rect: any = {
-          x: 0,
-          y: 0,
-          width: platform.width(),
-          height: platform.height()
-        };
+            var options = {
+             quality: 75,
+             destinationType: (<any>window).plugin.CanvasCamera.DestinationType.DATA_URL,
+             encodingType: (<any>window).plugin.CanvasCamera.EncodingType.JPEG,
+             width: 900,
+             height: 900
+         };
+         (<any>window).plugin.CanvasCamera.start(options);
 
-        CameraPreview.startCamera(
-          rect,
-          'rear',
-          tapEnabled,
-          dragEnabled,
-          toBack,
-          alpha
-        );
 
       });
   }
