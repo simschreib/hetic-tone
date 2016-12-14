@@ -4,7 +4,7 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { TabsPage } from '../pages/tabs/tabs';
 import { Component, ViewChild } from '@angular/core';
-import { AuthData } from '../providers/auth-data';
+// import { AuthData } from '../providers/auth-data';
 import {
   NavController,
   LoadingController,
@@ -36,11 +36,11 @@ export class MyApp {
       StatusBar.styleDefault();
     });
     //
-    firebase.auth().onAuthStateChanged((user) => {
-      if (!user) {
-        this.nav.push(LoginPage);
-      }
-    });
+    // firebase.auth().onAuthStateChanged((user) => {
+    //   if (!user) {
+    //     this.nav.push(LoginPage);
+    //   }
+    // });
 
   }
 }

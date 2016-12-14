@@ -18,7 +18,7 @@
  */
 //
 //  main.m
-//  V2 Test
+//  my-app
 //
 //  Created by ___FULLUSERNAME___ on ___DATE___.
 //  Copyright ___ORGANIZATIONNAME___ ___YEAR___. All rights reserved.

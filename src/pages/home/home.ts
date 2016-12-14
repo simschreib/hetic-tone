@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
-import { CameraPreview } from 'ionic-native';
+import { Camera } from 'ionic-native';
 import {
   NavController,
   LoadingController,
-  AlertController } from 'ionic-angular';
-import { FormBuilder, Validators } from '@angular/forms';
+  AlertController, NavParams } from 'ionic-angular';
+import { FormBuilder } from '@angular/forms';
 import { AuthData } from '../../providers/auth-data';
-import { SignupPage } from '../signup/signup';
 import { LoginPage } from '../login/login';
-import { ResetPasswordPage } from '../reset-password/reset-password';
+import { ProfilePage } from '../profile/profile';
+import { File } from 'ionic-native';
 
 @Component({
   selector: 'page-home',
@@ -18,39 +18,16 @@ import { ResetPasswordPage } from '../reset-password/reset-password';
 })
 
 export class HomePage {
+  public base64Image: string;
 
   constructor(public platform: Platform, public nav: NavController, public authData: AuthData, public formBuilder: FormBuilder,
     public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
       platform.ready().then(() => {
 
-        StatusBar.styleDefault();
-        Splashscreen.hide();
-
-        let tapEnabled: any = false;
-        let dragEnabled: any = false;
-        let toBack: any = true;
-        let alpha = 1;
-        let rect: any = {
-          x: 0,
-          y: 0,
-          width: platform.width(),
-          height: platform.height()
-        };
-
-        CameraPreview.startCamera(
-          rect,
-          'rear',
-          tapEnabled,
-          dragEnabled,
-          toBack,
-          alpha
-        );
+      StatusBar.styleDefault();
+      Splashscreen.hide();
 
       });
-  }
-
-  refresh(){
-    window['location'].reload();
   }
 
   logOut(){
@@ -59,4 +36,30 @@ export class HomePage {
     });
   }
 
+  takePicture(){
+    Camera.getPicture({
+        destinationType: Camera.DestinationType.DATA_URL,
+        targetWidth: 1000,
+        targetHeight: 1000
+    }).then((imageData) => {
+      // imageData is a base64 encoded string
+        this.base64Image = "data:image/jpeg;base64," + imageData;
+    }, (err) => {
+        console.log(err);
+  });
+  }
+
+  uploadPicture(){
+    Camera.getPicture({
+        destinationType: Camera.DestinationType.DATA_URL,
+        targetWidth: 1000,
+        targetHeight: 1000,
+        sourceType: Camera.PictureSourceType.PHOTOLIBRARY
+    }).then((imageData) => {
+      // imageData is a base64 encoded string
+        this.base64Image = "data:image/jpeg;base64," + imageData;
+    }, (err) => {
+        console.log(err);
+  });
+  }
 }

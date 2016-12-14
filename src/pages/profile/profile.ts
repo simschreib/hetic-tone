@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 /*
   Generated class for the Profile page.
@@ -13,8 +13,11 @@ import { NavController } from 'ionic-angular';
 })
 export class ProfilePage {
 
-  constructor(public navCtrl: NavController) {}
+  public photo:any;
 
+  constructor(public navCtrl: NavController, public params:NavParams) {
+    this.photo = params.get("photo");
+  }
   ionViewDidLoad() {
     console.log('Hello ProfilePage Page');
   }
