@@ -5,7 +5,7 @@ import { HomePage } from '../home/home';
 
 import Tone from 'tone';
 import namer from 'color-namer';
-import ColorThief from 'color-thief'
+import ColorThief from 'color-thief';
 
 @Component({
   selector: 'page-profile',
@@ -17,11 +17,13 @@ export class ProfilePage {
   public synth:any;
   public canvas:any;
   public colorThief:any;
+  public img:string;
 
-  constructor(public nav: NavController, public params:NavParams, public platform: Platform) {
+  constructor(public nav: NavController, public params:NavParams, public platform: Platform ) {
     platform.ready().then(() => {
       this.setCanvasSize();
       this.synth = new Tone.Synth().toMaster();
+      this.colorThief = new ColorThief();
       this.photo = params.get("photo");
       this.getImage();
     });
@@ -69,16 +71,77 @@ export class ProfilePage {
   pickPixel($event) {
     var canvas = <HTMLCanvasElement> document.getElementById('canvas');
     var ctx : CanvasRenderingContext2D = canvas.getContext('2d');
+    var color = document.getElementById('color');
 
-    var x = $event.layerX;
-    var y = $event.layerY;
+    var x = $event.layerX-25;
+    var y = $event.layerY-25;
 
-    var pixel = ctx.getImageData(x, y,1,1);
-    var data = pixel.data;
+    var data = ctx.getImageData(x-25, y-25,50,50).data;
 
-    var hertz = Math.round(120+(data[0]+data[1]*16+data[2]*256)/100);
+    var Clr = this.getDominantColor(data);
+    console.log(Clr[0]);
+    var hertz = Math.round(120+(Clr[0]+Clr[1]*16+Clr[2]*256)/100);
+    console.log("[HERTZ]");
+    console.log(hertz);
+    var rgb = 'rgb('+Clr[0]+','+Clr[1]+','+Clr[2]+')';
+    var colorName = namer(rgb);
+    console.log(rgb);
     this.synth.triggerAttackRelease(hertz, "8n");
+
+    console.log("COLOR NAME");
+    console.log("name : " + colorName.pantone[0].name)
+    color.innerHTML = colorName.pantone[0].name;
+
+    var T = Math.round(hertz/100)-1;
+
+    (<HTMLDivElement> document.getElementById('bar'+(15))).style.height= ((T*10)+5)+'px';
+
+    for(var i  = 1; i < 16; i++){
+      (<HTMLDivElement> document.getElementById('bar'+(15+i))).style.height = (T*10-(i*(i%3))+5)+'px';
+      (<HTMLDivElement> document.getElementById('bar'+(15-i))).style.height = (T*10-(i*(i%3))+5)+'px';
+    }
+
+    window.setTimeout(function(){
+      for(var i = 0; i < 31; i++){
+        (<HTMLDivElement> document.getElementById('bar'+(i))).style.height = '0px';
+      }
+    },500);
   }
+
+  getDominantColor(data) {
+  // keep track of how many times a color appears in the image
+  let colorCount = {};
+  let maxCount = 0;
+  let dominantColor = "";
+  // data is an array of a series of 4 one-byte values representing the rgba values of each pixel
+
+
+  for (let i = 0; i < data.length; i += 4) {
+    // ignore transparent pixels
+    if (data[i+3] == 0)
+      continue;
+
+    let color = data[i] + "," + data[i+1] + "," + data[i+2];
+    // ignore white
+    if (color == "255,255,255")
+      continue;
+
+    colorCount[color] = colorCount[color] ?  colorCount[color] + 1 : 1;
+
+    // keep track of the color that appears the most times
+    if (colorCount[color] > maxCount) {
+      maxCount = colorCount[color];
+      dominantColor = color;
+    }
+  }
+
+  let rgb = dominantColor.split(',').map(function(item) {
+    return parseInt(item, 10);
+  });;
+
+
+  return rgb;
+}
 
   goBack(){
     this.nav.setRoot(HomePage, {}, { animate: true , direction: 'backward' });
@@ -92,8 +155,8 @@ export class ProfilePage {
   smoothPointer($event){
     console.log('POINTER');
     var pointer =  <HTMLCanvasElement> document.getElementById('pointer');
-    var x = $event.layerX;
-    var y = $event.layerY;
+    var x = $event.layerX-25;
+    var y = $event.layerY-25;
     console.log(x);
     pointer.style.left = x +'px';
     console.log(x);

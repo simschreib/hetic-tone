@@ -15,3 +15,4 @@ declare module '*';
 declare module 'tone';
 declare module 'color-namer';
 declare module 'color-thief';
+declare module 'thief';

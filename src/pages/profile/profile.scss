@@ -42,6 +42,24 @@ page-profile {
     }
   }
 
+  .barContainer{
+      height: 300px;
+      display: table;
+      transition: all 0.4s ease;
+    }
+
+  .bar{
+    display: table-cell;
+    vertical-align: middle;
+    width :5px;
+    height: 0px;
+    background: #cc23f2;
+    border-radius: 5px;
+    border: 2px solid black;
+    transition: all 0.4s ease;
+    display : inline-block;
+  }
+
 }
 
 .scroll-content{
