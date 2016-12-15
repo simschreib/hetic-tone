@@ -52,7 +52,7 @@
         "cordova-plugin-file": {
             "PACKAGE_NAME": "com.ionicframework.myapp260348"
         },
-        "cordova-plugin-filepath": {
+        "cordova-plugin-cameraserver": {
             "PACKAGE_NAME": "com.ionicframework.myapp260348"
         }
     },
@@ -323,7 +323,21 @@
             "id": "cordova-plugin-file.firefoxFileSystem",
             "pluginId": "cordova-plugin-file",
             "merges": [
-                "window.FileSystem"
+            "window.FileSystem"
+            "file": "plugins/com.keith.cordova.plugin.canvascamera/www/CanvasCamera.js",
+            "id": "com.keith.cordova.plugin.canvascamera.CanvasCamera",
+            "pluginId": "com.keith.cordova.plugin.canvascamera",
+            "clobbers": [
+                "plugin.CanvasCamera",
+                "CanvasCamera"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-cameraserver/www/CameraServer.js",
+            "id": "cordova-plugin-cameraserver.CameraServer",
+            "pluginId": "cordova-plugin-cameraserver",
+            "clobbers": [
+                "cordova.plugins.CameraServer"
             ]
         }
     ],

@@ -7,9 +7,6 @@
         "files": {}
     },
     "installed_plugins": {
-        "com.mbppower.camerapreview": {
-            "PACKAGE_NAME": "com.ionicframework.myapp260348"
-        },
         "cordova-plugin-camera": {
             "CAMERA_USAGE_DESCRIPTION": " ",
             "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
@@ -18,13 +15,7 @@
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.ionicframework.myapp260348"
         },
-        "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.ionicframework.myapp260348"
-        },
-        "cordova-plugin-file": {
-            "PACKAGE_NAME": "com.ionicframework.myapp260348"
-        },
-        "cordova-plugin-filepath": {
+        "cordova-plugin-playfrequency": {
             "PACKAGE_NAME": "com.ionicframework.myapp260348"
         },
         "cordova-plugin-splashscreen": {

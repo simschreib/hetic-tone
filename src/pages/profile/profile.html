@@ -5,14 +5,15 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>Profile</ion-title>
+    <button (click)="goBack()">
+      Home
+    </button>
+    <ion-title>Photo</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
 <ion-content id="profile-content" padding>
-  <img width="200" src={{photo}} alt="">
+  <canvas id="canvas" (click)="clickEvents($event)" ></canvas>
+  <div id="pointer"></div>
 </ion-content>

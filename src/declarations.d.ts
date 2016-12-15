@@ -12,3 +12,6 @@
   https://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html
 */
 declare module '*';
+declare module 'tone';
+declare module 'color-namer';
+declare module 'color-thief';

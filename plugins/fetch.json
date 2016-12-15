@@ -34,7 +34,7 @@
     "cordova-plugin-splashscreen": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-splashscreen@4.0.0"
+            "id": "cordova-plugin-splashscreen@4.0.1"
         },
         "is_top_level": true,
         "variables": {}
@@ -75,6 +75,24 @@
         "source": {
             "type": "registry",
             "id": "cordova-plugin-filepath"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-tonegenerator": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/sdesalas/cordova-plugin-tonegenerator",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-playfrequency": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/an-rahulpandey/cordova-plugin-playfrequency.git",
+            "subdir": "."
         },
         "is_top_level": true,
         "variables": {}
