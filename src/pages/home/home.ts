@@ -50,7 +50,6 @@ export class HomePage {
         targetHeight: 1000,
         sourceType: Camera.PictureSourceType.PHOTOLIBRARY
     }).then((imageData) => {
-      // imageData is a base64 encoded string
         this.base64Image = "data:image/jpeg;base64," + imageData;
         this.nav.push(ProfilePage, {photo:this.base64Image},{ animate: true, direction: 'forward' });
     }, (err) => {

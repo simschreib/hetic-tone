@@ -69,7 +69,6 @@
     <icon height="58" src="resources/ios/icon/icon-small@2x.png" width="58" />
     <icon height="87" src="resources/ios/icon/icon-small@3x.png" width="87" />
     <splash height="1136" src="resources/ios/splash/Default-568h@2x~iphone.png" width="640" />
-    <splash height="768" src="resources/ios/splash/Default-Landscape~ipad.png" width="1024" />
     <splash height="1024" src="resources/ios/splash/Default-Portrait~ipad.png" width="768" />
     <splash height="960" src="resources/ios/splash/Default@2x~iphone.png" width="640" />
     <splash height="480" src="resources/ios/splash/Default~iphone.png" width="320" />
@@ -94,4 +93,5 @@
     <preference name="android-minSdkVersion" value="16" />
     <preference name="SplashMaintainAspectRatio" value="true" />
     <preference name="FadeSplashScreenDuration" value="300" />
+    <preference name="orientation" value="portrait" />
 </widget>

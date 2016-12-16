@@ -4,19 +4,22 @@
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
-  <ion-navbar>
-    <button (click)="goBack()">
+<ion-header class="header-photo">
+  <ion-navbar class="header-nav">
+    <button class="button-clear"(click)="goBack()">
+      <img src="assets/imgs/arrow-back.png" alt="">
     </button>
     <ion-title>Photo</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content id="profile-content" padding>
+<ion-content content scroll="false" id="profile-content" padding>
   <canvas width="300" height="300" id="canvas" (click)="clickEvents($event)" ></canvas>
   <div id="pointer"></div>
-  <div id="color"></div>
-  <div class="barContainer">
+</ion-content>
+<ion-footer class="footer-profile">
+  <div id="color" class="color-contain">Couleur</div>
+  <div id="barContainer">
     <div class="bar" id="bar0"></div>
     <div class="bar" id="bar1"></div>
     <div class="bar" id="bar2"></div>
@@ -49,4 +52,4 @@
     <div class="bar" id="bar29"></div>
     <div class="bar" id="bar30"></div>
   </div>
-</ion-content>
+</ion-footer>

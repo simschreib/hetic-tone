@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ViewController} from 'ionic-angular';
 import { Platform } from 'ionic-angular';
 import { HomePage } from '../home/home';
 
@@ -19,7 +19,7 @@ export class ProfilePage {
   public colorThief:any;
   public img:string;
 
-  constructor(public nav: NavController, public params:NavParams, public platform: Platform ) {
+  constructor(public nav: NavController, public params:NavParams, public platform: Platform, private viewCtrl: ViewController ) {
     platform.ready().then(() => {
       this.setCanvasSize();
       this.synth = new Tone.Synth().toMaster();
@@ -27,6 +27,10 @@ export class ProfilePage {
       this.photo = params.get("photo");
       this.getImage();
     });
+  }
+
+  ionViewWillEnter() {
+    this.viewCtrl.showBackButton(true);
   }
 
   setCanvasSize(){
@@ -60,11 +64,14 @@ export class ProfilePage {
           imgHeight = imgHeight*scale;
           imgWidth = imgWidth*scale;
       }
-
       canvas.style.height = imgHeight;
       canvas.style.width = imgWidth;
-
-      context.drawImage(image, 0, 0, image.naturalWidth, image.naturalHeight, 0,0, imgWidth, imgHeight);
+      if (imgHeight < canvas.style.height) {
+        context.drawImage(image, 0, 0, image.naturalWidth, image.naturalHeight, 0,(canvas.style.height - imgHeight)/2, imgWidth, imgHeight);
+      }
+      else{
+        context.drawImage(image, 0, 0, image.naturalWidth, image.naturalHeight, 0,0, imgWidth, imgHeight);
+      }
     }
   }
 
@@ -73,32 +80,29 @@ export class ProfilePage {
     var ctx : CanvasRenderingContext2D = canvas.getContext('2d');
     var color = document.getElementById('color');
 
-    var x = $event.layerX-25;
-    var y = $event.layerY-25;
+    var x = $event.layerX-10;
+    var y = $event.layerY-10;
 
     var data = ctx.getImageData(x-25, y-25,50,50).data;
 
     var Clr = this.getDominantColor(data);
-    console.log(Clr[0]);
     var hertz = Math.round(120+(Clr[0]+Clr[1]*16+Clr[2]*256)/100);
-    console.log("[HERTZ]");
-    console.log(hertz);
+
     var rgb = 'rgb('+Clr[0]+','+Clr[1]+','+Clr[2]+')';
     var colorName = namer(rgb);
-    console.log(rgb);
     this.synth.triggerAttackRelease(hertz, "8n");
-
-    console.log("COLOR NAME");
-    console.log("name : " + colorName.pantone[0].name)
+    console.log(colorName.pantone[0].name);
     color.innerHTML = colorName.pantone[0].name;
 
     var T = Math.round(hertz/100)-1;
 
-    (<HTMLDivElement> document.getElementById('bar'+(15))).style.height= ((T*10)+5)+'px';
+    var barContainer = (<HTMLDivElement>document.getElementById('barContainer'));
+    barContainer.style.width = "" + this.platform.width();
+    (<HTMLDivElement>document.getElementById('bar'+(15))).style.height= ((T*5)/2+5)+'px';
 
     for(var i  = 1; i < 16; i++){
-      (<HTMLDivElement> document.getElementById('bar'+(15+i))).style.height = (T*10-(i*(i%3))+5)+'px';
-      (<HTMLDivElement> document.getElementById('bar'+(15-i))).style.height = (T*10-(i*(i%3))+5)+'px';
+      (<HTMLDivElement> document.getElementById('bar'+(15+i))).style.height = (T*5-(i*(i%3)/2)+5)+'px';
+      (<HTMLDivElement> document.getElementById('bar'+(15-i))).style.height = (T*5-(i*(i%3)/2)+5)+'px';
     }
 
     window.setTimeout(function(){
@@ -153,10 +157,9 @@ export class ProfilePage {
   }
 
   smoothPointer($event){
-    console.log('POINTER');
     var pointer =  <HTMLCanvasElement> document.getElementById('pointer');
-    var x = $event.layerX-25;
-    var y = $event.layerY-25;
+    var x = $event.layerX-10;
+    var y = $event.layerY-10;
     console.log(x);
     pointer.style.left = x +'px';
     console.log(x);
